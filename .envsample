@@ -1,0 +1,14 @@
+FLASK_CONFIG=development
+APP_ENV=development
+FLASK_ENV=development
+FLASK_APP=run.py
+APP_SETTINGS=config.DevelopConfig
+SECRET_KEY=
+DATABASE_URL=
+DATABASE_TEST_URL=
+MAIL_SERVER=smtp.googlemail.com
+MAIL_PORT=587
+MAIL_USE_TLS=1
+MAIL_USERNAME=
+MAIL_PASSWORD=
+
