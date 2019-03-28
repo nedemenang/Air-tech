@@ -35,6 +35,11 @@ Edit the env-sample file with your credentials and save it as .env. Change the p
 
 The key FLASK_APP must be set to run.py. The value of the APP_ENV between development and testing in order to run the application in development or testing mode respectively.
 
+## Setting up a virtual environment
+Run: `virtualenv venv --python=python3.7` in project directory to install a python3.7 virtual environment
+
+Run: `source venv/bin/activate` to activate virtual environment
+
 On the prompt execute the following
 
 ```export $(cat .env```)
