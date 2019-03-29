@@ -48,14 +48,6 @@ Execute the following code to install all the application dependencies.
 
 ```python install -r requirements.txt```
 
-Execute the following code to migrate all data tables/object
-
-```python run.py db migrate```
-
-Execute the following code to seed the database
-
-```flask seed_database```
-
 Execute the following at the command line
 
 ```python run.py runserver```
