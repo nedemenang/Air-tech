@@ -7,10 +7,14 @@ from app.blueprints.base_blueprint import BaseBlueprint
 from celery import Celery
 import celeryconflig
 
-app = FlaskAPI(__name__, instance_relative_config=False)
-app.config.from_object(env.app_env[get_env('APP_ENV')])
-app.config.from_pyfile('../config/env.py')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+def create_app(config_name):
+    app = FlaskAPI(__name__, instance_relative_config=False)
+    app.config.from_object(env.app_env[config_name])
+    app.config.from_pyfile('../config/env.py')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    return app
+
 
 # CORS(app)
 
@@ -35,6 +39,9 @@ def make_celery(app):
     celery.Task = ContextTask
 
     return celery
+
+
+app = create_app(get_env('APP_ENV'))
 
 celery = make_celery(app)
 
