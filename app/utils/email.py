@@ -10,8 +10,10 @@ def send_async_email(app, msg):
 
 
 def send_email(subject, sender, recipients, flight, flight_seat, user, ticket):
-    msg = Message(subject, sender=sender, recipients=recipients)
-    msg.body = render_template('./flight_email.txt', flight=flight, flight_seat=flight_seat, user=user, ticket=ticket),
-    msg.html = render_template('./flight_email.html', flight=flight, flight_seat=flight_seat, user=user, ticket=ticket)
+        msg = Message(subject, sender=sender, recipients=recipients)
 
-    Thread(target=send_async_email, args=(app, msg)).start()
+        msg.html = render_template('flight_email.html', flight=flight, flight_seat=flight_seat, user=user, ticket=ticket)
+
+        msg.body = render_template('flight_email.txt', flight=flight, flight_seat=flight_seat, user=user, ticket=ticket)
+
+        Thread(target=send_async_email, args=(app, msg)).start()
