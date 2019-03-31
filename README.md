@@ -42,11 +42,19 @@ Run: `source venv/bin/activate` to activate virtual environment
 
 On the prompt execute the following
 
-```export $(cat .env```)
+```export $(cat .env)```
 
 Execute the following code to install all the application dependencies.
 
 ```python install -r requirements.txt```
+
+Execute the following code to migrate all data tables/object
+
+```python run.py db migrate```
+
+Execute the following code to seed the database
+
+```python run.py seed_all```
 
 Execute the following at the command line
 
