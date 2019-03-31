@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        background: #fff;
+        padding: 25px;
+      }
+      .header table {
+        background: #225be2;
+        color: #fff;
+        display: table;
+        border-color: #225be2;
+      }
+      th {
+        width: 300px;
+        font-weight: bold;
+        display: table-cell;
+        padding: 20px;
+      }
+      th img {
+        float: right;
+        height: 50px;
+        width: 50px;
+      }
+      h3 {
+        color: #fff;
+        font-weight: 100;
+        text-align: left;
+        font-size: 24px;
+      }
+      .body, .footer {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <table>
+          <tr>
+            <th>
+              <h3>Flight Information</h3>
+            </th>
+          </tr>
+        </table>
+      </div>
+      <div class="body">
+          <div>
+            <p>First Name</p>
+            <p>{{user.first_name}}</p>
+            <p>Last Name</p>
+            <p>{{user.last_name}}</p>
+            <p>Flight No</p>
+            <p>{{flight.flight_code}}</p>
+            <p>From</p>
+            <p>{{flight.from_location}}</p>
+            <p>To</p>
+            <p>{{flight.to_location}}</p>
+            <p>Departure Time</p>
+            <p>{{flight.departure_time}}</p>
+            <p>Flight Seat</p>
+            <p>{{flight_seat.seat_number}}</p>
+            <p>Ticket Number</p>
+            <p>{{ticket.ticket_no}}</p>
+          </div>
+          <div>
+            <p>Regards,</p>
+            <p>Airtech</p>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
