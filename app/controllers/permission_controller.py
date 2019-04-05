@@ -43,7 +43,7 @@ class PermissionController(BaseController):
 
     # USER ROLES
     def get_user_role(self, user_id):
-        user_role = self.user_role_repo.get(user_id)
+        user_role = self.user_role_repo.filter_first(**{'user_id': user_id})
         if user_role:
             return self.handle_response('OK', payload={'user_role': user_role.serialize()})
         return self.handle_response('Invalid or Missing user_id')

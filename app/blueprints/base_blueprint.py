@@ -19,6 +19,10 @@ class BaseBlueprint:
         from app.blueprints.location_blueprint import location_blueprint
         from app.blueprints.permission_blueprint import permission_blueprint
         from app.blueprints.ticket_blueprint import ticket_blueprint
+        from app.blueprints.user_roles_blueprint import user_role_blueprint
+        from app.blueprints.role_blueprint import role_blueprint
+        from app.blueprints.permission_blueprint import permission_blueprint
+        from app.blueprints.flight_seat_blueprint import flight_seat_blueprint
 
         self.app.register_blueprint(sample_blueprint)
         self.app.register_blueprint(user_blueprint)
@@ -27,3 +31,8 @@ class BaseBlueprint:
         self.app.register_blueprint(location_blueprint)
         self.app.register_blueprint(permission_blueprint)
         self.app.register_blueprint(ticket_blueprint)
+        self.app.register_blueprint(user_role_blueprint)
+        self.app.register_blueprint(role_blueprint)
+        self.app.register_blueprint(permission_blueprint)
+        self.app.register_blueprint(flight_seat_blueprint)
+
