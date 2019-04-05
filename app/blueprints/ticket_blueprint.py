@@ -13,7 +13,7 @@ def list_ticket():
 
 
 @ticket_blueprint.route('/<int:ticket_id>/', methods=['GET'])
-def get_card_details(ticket_id):
+def get_ticket(ticket_id):
     return ticket_controller.get_ticket(ticket_id)
 
 
@@ -29,6 +29,6 @@ def update_ticket(ticket_id):
     return ticket_controller.update_ticket(ticket_id)
 
 
-@ticket_blueprint.route('/', methods=['DELETE'])
+@ticket_blueprint.route('/<int:ticket_id>/', methods=['DELETE'])
 def delete_ticket(ticket_id):
     return ticket_controller.delete_ticket(ticket_id)

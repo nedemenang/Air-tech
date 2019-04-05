@@ -83,8 +83,13 @@ class UserController(BaseController):
         email_address, password = self.request_params('emailAddress', 'password')
         user = self.user_repo.filter_first(**{'email_address': email_address})
         if user:
+            if not re.fullmatch(r"(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", password):
+                return self.handle_response('Bad Request - password not strong enough', status_code=400)
+
+            password = bcrypt.generate_password_hash(password, 10).decode()
+
             updates = {'password': password}
             self.user_repo.update(user, **updates)
-            return self.handle_response('OK', payload={'user': user})
+            return self.handle_response('OK', payload={'user': user.serialize()})
         else:
             return self.handle_response('Bad Request - authentication error', status_code=400)

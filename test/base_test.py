@@ -4,10 +4,12 @@ import json
 from app import app
 from app.utils import db
 from app.utils.auth import Auth
+from run import seed_all, create_db
 from flask_testing import TestCase
 from faker import Faker
 from datetime import datetime, timedelta
 import os
+from run import seed_all
 
 fake = Faker()
 
@@ -18,7 +20,8 @@ class BaseTestCase(TestCase):
 
     def BaseSetUp(self):
         """Define test variables and initialize app"""
-        self.app = app
+        os.environ["APP_ENV"] = "testing"
+        self.app = self.create_app()
         self.client = self.app.test_client
 
         self.migrate()
@@ -28,13 +31,13 @@ class BaseTestCase(TestCase):
         secret_key = getenv('SECRET_KEY')
         payload = {
             # 'UserInfo': User().to_dict(),
-            'exp': datetime.now() + timedelta(days=0, seconds=120),
+            'exp': datetime.now() + timedelta(days=1, seconds=0),
             'iat': datetime.now(),
-            'sub': User().to_dict()['id']
+            'sub': User().to_dict()['emailAddress']
         }
         payload.__setitem__('exp', exp) if exp is not None else ''
 
-        token = jwt.encode(payload, secret_key, algorithm='RS256').decode('utf-8')
+        token = jwt.encode(payload, secret_key, algorithm='HS256').decode('utf-8')
         return token
 
     @staticmethod
@@ -50,7 +53,7 @@ class BaseTestCase(TestCase):
 
     @staticmethod
     def user_email():
-        return Auth.decode_token(BaseTestCase.get_valid_token())['UserInfo']['email']
+        return Auth.decode_token(BaseTestCase.get_valid_token())['sub']
 
     @staticmethod
     def user_first_and_last_name():
@@ -65,17 +68,17 @@ class BaseTestCase(TestCase):
 
     def create_app(self):
         """Create the app and specify 'testing' as the environment"""
-        os.environ["APP_ENV"] = "testing"
-        self.app = app
+        self.app = app  # create_app('testing')
+
         self.app_context = self.app.app_context()
         self.app_context.push()
         self.client = self.app.test_client()
         self.request_context = self.app.test_request_context()
         self.url = '/api/v1'
 
-        @self.app.before_request
-        def check_token():
-            return Auth.check_token()
+        # @self.app.before_request
+        # def check_token():
+        #     return Auth.check_token()
 
         ''' Init DB'''
 
@@ -97,6 +100,8 @@ class BaseTestCase(TestCase):
         db.session.close()
         db.drop_all()
         db.create_all()
+        seed_all()
+
 
     @staticmethod
     def headers():
@@ -161,7 +166,7 @@ class User:
         self.last_name = fake.last_name()
         self.firstName = self.first_name
         self.lastName = self.last_name
-        self.email_address = fake.email()
+        self.email_address = 'nnamso.edemenang@gmail.com'
         self.name = f'{self.first_name} {self.last_name}'
         self.photo_link = fake.image_url(height=None, width=None)
 

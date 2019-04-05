@@ -1,6 +1,8 @@
 import factory
 from app.utils import db
 from app.models.location import Location
+import string
+import random
 
 
 class LocationFactory(factory.alchemy.SQLAlchemyModelFactory):
@@ -10,5 +12,5 @@ class LocationFactory(factory.alchemy.SQLAlchemyModelFactory):
         sqlalchemy_session = db.session
 
     id = factory.sequence(lambda n: n)
-    location_code = 'ABV'
-    location = 'Abuja'
+    location_code = ''.join(random.choices(string.ascii_uppercase, k=3))
+    location = factory.Faker('country')

@@ -13,6 +13,7 @@ def create_app(config_name):
     app.config.from_object(env.app_env[config_name])
     app.config.from_pyfile('../config/env.py')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
     return app
 
 
@@ -48,9 +49,7 @@ celery = make_celery(app)
 bcrypt = Bcrypt(app)
 mail = Mail(app)
 
+db.init_app(app)
 
 blueprint = BaseBlueprint(app)
 blueprint.register()
-
-db.init_app(app)
-

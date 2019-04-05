@@ -84,7 +84,7 @@ class FlightController(BaseController):
                 updates['status'] = status
             if departure_time:
                 updates['departure_time'] = departure_time
-                updates['departure_date'] = datetime.date(departure_time)
+                updates['departure_date'] = datetime.date(parser.parse(departure_time))
             if arrival_time:
                 updates['arrival_time'] = arrival_time
             if price:

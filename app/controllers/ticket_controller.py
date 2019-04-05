@@ -63,8 +63,9 @@ class TicketController(BaseController):
                 recipients.append(user.email_address)
                 send_email('Ticket Booked', 'airtech@email.com', recipients, flight, flight_seat, user, ticket)
 
-            self.ticket_repo.update(ticket, **updates)
-            return self.handle_response('OK', payload={'ticket': ticket.serialize()})
+            updated_ticket = self.ticket_repo.update(ticket, **updates)
+            print(updated_ticket.serialize())
+            return self.handle_response('OK', payload={'ticket': updated_ticket.serialize()})
         return self.handle_response('Invalid or incorrect ticket_id provided', status_code=400)
 
     def delete_ticket(self, ticket_id):

@@ -13,10 +13,11 @@ class BaseModel(db.Model):
     updated_at = db.Column(db.DateTime(), default=datetime.now(), onupdate=datetime.now())
 
     def save(self):
+        
         try:
             db.session.add(self)
             db.session.commit()
-        except (exc.IntegrityError, exc.InvalidRequestError):
+        except(exc.IntegrityError, exc.InvalidRequestError):
             db.session().rollback()
 
     def delete(self):
