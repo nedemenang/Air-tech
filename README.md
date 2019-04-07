@@ -6,7 +6,7 @@
 
 ## Project Description
 
-Company Airtech has had their challenges using spreadsheets to manage their flight booking system. They are ready to automate their processes with an automatic flight booking application for the company.
+Company Airtech has had their challenges using spreadsheets to manage their flight booking system. They are ready to automate their processes with an application and have reached out to you to build a flight booking application for the company.
 
 The flight booking system provides an API that enables the users to:
 
