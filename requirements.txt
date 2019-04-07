@@ -15,7 +15,8 @@ certifi==2019.3.9
 cffi==1.11.5
 chardet==3.0.4
 click==6.7
-coverage==4.4.0
+coverage==4.5.3
+coveralls==1.6.0
 cryptography==2.3.1
 execnet==1.6.0
 factory-boy==2.11.1
