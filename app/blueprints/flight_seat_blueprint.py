@@ -17,6 +17,7 @@ def get_available_seats_on_flight(flight_id):
     return flight_seat_controller.get_available_seats_on_flight(flight_id)
 
 
+
 @flight_seat_blueprint.route('/unavailable/<int:flight_id>/', methods=['GET'])
 def get_unavailable_seats_on_flight(flight_id):
     return flight_seat_controller.get_unavailable_seats_on_flight(flight_id)
