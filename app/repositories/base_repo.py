@@ -25,9 +25,6 @@ class BaseRepo:
     def get_first_item(self):
         return self._model.query.first()
 
-    def order_by(self, *args):
-        return self._model.query.order_by(*args)
-
     def filter_all(self, **kwargs):
         return self._model.query.filter(**kwargs).paginate(error_out=False)
 
@@ -39,12 +36,6 @@ class BaseRepo:
 
     def filter_first(self, **kwargs):
         return self._model.query.filter_by(**kwargs).first()
-
-    def filter_and_count(self, **kwargs):
-        return self._model.query.filter_by(**kwargs).count()
-
-    def filter_and_order(self, *args, **kwargs):
-        return self._model.query.filter_by(*kwargs).order_by(*args)
 
     def paginate(self, **kwargs):
         return self._model.query.paginate(**kwargs)

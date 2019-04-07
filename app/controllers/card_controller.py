@@ -30,7 +30,7 @@ class CardDetailController(BaseController):
         return self.handle_response('OK', payload={'cardDetail': card_detail.serialize()})
 
     def update_card_details(self, card_details_id):
-        card_number, expiry_month, expiry_year, security_number, user_id = self.request_params("cardNumber", "expiryMonth", "expiryYear", "securityNumber", "userId")
+        card_number, expiry_month, expiry_year, security_number = self.request_params("cardNumber", "expiryMonth", "expiryYear", "securityNumber")
 
         card_detail = self.card_detail_repo.get(card_details_id)
 
@@ -44,8 +44,6 @@ class CardDetailController(BaseController):
                 updates['expiry_year'] = expiry_year
             if security_number:
                 updates['securiy_number'] = security_number
-            if user_id:
-                updates['user_id'] = user_id
 
             self.card_detail_repo.update(card_detail, **updates)
             return self.handle_response('OK', payload={'cardDetail': card_detail.serialize()})

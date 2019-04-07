@@ -24,7 +24,7 @@ def create_card_details():
 
 
 @card_blueprint.route('/<int:card_id>/', methods=['PATCH', 'PUT'])
-@Security.validator(['cardNumber|required:string', 'expiryMonth|required:int', 'expiryYear|required:int', 'securityNumber|required:int', 'userId|required:int'])
+@Security.validator(['cardNumber|required:string', 'expiryMonth|required:int', 'expiryYear|required:int', 'securityNumber|required:int'])
 def update_card_details(card_id):
     return card_controller.update_card_details(card_id)
 

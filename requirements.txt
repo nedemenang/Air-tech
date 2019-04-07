@@ -15,7 +15,7 @@ certifi==2019.3.9
 cffi==1.11.5
 chardet==3.0.4
 click==6.7
-coverage==4.5.3
+coverage==4.0.3
 coveralls==1.6.0
 cryptography==2.3.1
 execnet==1.6.0
@@ -49,6 +49,7 @@ pycparser==2.19
 PyJWT==1.6.4
 pylint==2.2.2
 pytest==3.8.0
+pytest-cov==2.5.1
 pytest-forked==1.0.2
 pytest-xdist==1.27.0
 python-coveralls==2.9.1

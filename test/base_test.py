@@ -146,17 +146,17 @@ class BaseTestCase(TestCase):
         else:
             assert False
 
-    @staticmethod
-    def construct_mock_response(json_data, status_code):
-        class MockResponseClass:
-            def __init__(self, json_data, status_code):
-                self.json_data = json_data
-                self.status_code = status_code
+    # @staticmethod
+    # def construct_mock_response(json_data, status_code):
+    #     class MockResponseClass:
+    #         def __init__(self, json_data, status_code):
+    #             self.json_data = json_data
+    #             self.status_code = status_code
 
-            def json(self):
-                return self.json_data   
+    #         def json(self):
+    #             return self.json_data   
 
-        return MockResponseClass(json_data, status_code)
+    #     return MockResponseClass(json_data, status_code)
 
 
 class User:
