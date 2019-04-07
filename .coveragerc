@@ -11,6 +11,6 @@ omit =
     */__init__.py
     manage.py
     seed_data.py
-    app/templates/flight_email.html
-    app/templates/flight_email.txt
+    */flight_email.html
+    */flight_email.txt
     
