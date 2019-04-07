@@ -11,3 +11,5 @@ omit =
     */__init__.py
     manage.py
     seed_data.py
+    *.html
+    *.txt
