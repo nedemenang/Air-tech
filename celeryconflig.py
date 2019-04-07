@@ -14,5 +14,5 @@ CELERYBEAT_SCHEDULE = {
         'task': 'app.tasks.email.print_hello',
         # Every minute
         'schedule': crontab(minute="*"),
-    }
+    } 
 }
