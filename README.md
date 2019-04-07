@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg?branch=develop)](https://coveralls.io/github/nedemenang/Air-tech?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg?branch=master)](https://coveralls.io/github/nedemenang/Air-tech?branch=master)
 
 # AIRTECH
 
