@@ -5,3 +5,4 @@ from .permission_factory import PermissionFactory
 from .permission_factory import RoleFactory
 from .permission_factory import UserRoleFactory
 from .flight_seat_factory import FlightSeatFactory
+from .card_factory import CardFactory

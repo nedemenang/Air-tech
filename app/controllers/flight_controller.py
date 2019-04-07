@@ -41,6 +41,7 @@ class FlightController(BaseController):
             serialize_seat['ticket'] = ticket.serialize()
             serialize_seat['user'] = serialized_user
             seat_list.append(serialize_seat)
+            # print('I am here')
         return self.handle_response('OK', payload={'flightSeats': seat_list, 'meta': self.pagination_meta(flight_seats)})
 
     def get_flights_by_location_and_date(self, from_location, to_location, departure_date):
