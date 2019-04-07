@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      .container {
-        background: #fff;
-        padding: 25px;
-      }
-      .header table {
-        background: #225be2;
-        color: #fff;
-        display: table;
-        border-color: #225be2;
-      }
-      th {
-        width: 300px;
-        font-weight: bold;
-        display: table-cell;
-        padding: 20px;
-      }
-      th img {
-        float: right;
-        height: 50px;
-        width: 50px;
-      }
-      h3 {
-        color: #fff;
-        font-weight: 100;
-        text-align: left;
-        font-size: 24px;
-      }
-      .body, .footer {
-        padding: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <table>
-          <tr>
-            <th>
-              <h3>Flight Information</h3>
-            </th>
-          </tr>
-        </table>
-      </div>
-      <div class="body">
-          <div>
-            <table>
-              <tr>
-                <td>First Name</td>
-                <td><p>{{user.first_name}}</p></td>
-              </tr>
-              <tr>
-                  <td><p>Last Name</p></td>
-                  <td><p>{{user.last_name}}</p></td>
-                </tr>
-                <tr>
-                    <td><p>Flight No</p></td>
-                    <td><p>{{flight.flight_code}}</p></td>
-                  </tr>
-                  <tr>
-                      <td><p>From</p></td>
-                      <td><p>{{flight.from_location}}</p></td>
-                    </tr>
-                    <tr>
-                        <td><p>To</p></td>
-                        <td><p>{{flight.to_location}}</p></td>
-                      </tr>
-                      <tr>
-                          <td><p>Departure Time</p></td>
-                          <td><p>{{flight.departure_time}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Flight Seat</p></td>
-                            <td><p>{{flight_seat.seat_number}}</p></td>
-                          </tr>
-                          <tr>
-                              <td><p>Ticket Number</p></td>
-                              <td><p>{{ticket.ticket_no}}</p></td>
-                            </tr>
-            </table>
-          </div>
-          <div>
-            <p>Regards,</p>
-            <p>Airtech</p>
-          </div>
-      </div>
-    </div>
-  </body>
+<head>
+<style>
+.container {
+  background: #fff;
+  padding: 25px;
+}
+.header table {
+  background: #225be2;
+  color: #fff;
+  display: table;
+  border-color: #225be2;
+}
+th {
+  width: 300px;
+  font-weight: bold;
+  display: table-cell;
+  padding: 20px;
+}
+th img {
+  float: right;
+  height: 50px;
+  width: 50px;
+}
+h3 {
+  color: #fff;
+  font-weight: 100;
+  text-align: left;
+  font-size: 24px;
+}
+.body, .footer {
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<table>
+<tr>
+<th>
+<h3>Flight Information</h3>
+</th>
+</tr>
+</table>
+</div>
+<div class="body">
+<div>
+<table>
+<tr>
+<td>First Name</td>
+<td><p>{{user.first_name}}</p></td>
+</tr>
+<tr>
+<td><p>Last Name</p></td>
+<td><p>{{user.last_name}}</p></td>
+</tr>
+<tr>
+<td><p>Flight No</p></td>
+<td><p>{{flight.flight_code}}</p></td>
+</tr>
+<tr>
+<td><p>From</p></td>
+<td><p>{{flight.from_location}}</p></td>
+</tr>
+<tr>
+<td><p>To</p></td>
+<td><p>{{flight.to_location}}</p></td>
+</tr>
+<tr>
+<td><p>Departure Time</p></td>
+<td><p>{{flight.departure_time}}</p></td>
+</tr>
+<tr>
+<td><p>Flight Seat</p></td>
+<td><p>{{flight_seat.seat_number}}</p></td>
+</tr>
+<tr>
+<td><p>Ticket Number</p></td>
+<td><p>{{ticket.ticket_no}}</p></td>
+</tr>
+</table>
+</div>
+<div>
+<p>Regards,</p>
+<p>Airtech</p>
+</div>
+</div>
+</div>
+</body>
 </html>
