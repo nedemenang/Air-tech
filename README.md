@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg?branch=develop)](https://coveralls.io/github/nedemenang/Air-tech?branch=develop)
+
 # AIRTECH
 
 ## Project Description

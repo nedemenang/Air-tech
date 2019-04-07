@@ -24,7 +24,7 @@ def create_location():
     return location_controller.create_location()
 
 
-@location_blueprint.route('/<int:location_id>/', methods=['POST'])
+@location_blueprint.route('/<int:location_id>/', methods=['PUT'])
 @Security.validator(['locationCode|required:string', 'location|required:string'])
 @Auth.has_permission('update_locations')
 def update_location(location_id):

@@ -51,7 +51,8 @@ def update_flight(flight_id):
     return flight_controller.update_flight(flight_id)
 
 
-@flight_blueprint.route('/', methods=['DELETE'])
+
+@flight_blueprint.route('/<int:flight_id>/', methods=['DELETE'])
 @Auth.has_permission('delete_flights')
 def delete_flight(flight_id):
     return flight_controller.delete_flight(flight_id)

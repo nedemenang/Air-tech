@@ -26,5 +26,5 @@ def login():
 
 @user_blueprint.route('/reset', methods=['PUT'])
 @Security.validator(['emailAddress|required:string', 'password|required:string'])
-def reset_password(user_id):
+def reset_password():
     return user_controller.reset_password()

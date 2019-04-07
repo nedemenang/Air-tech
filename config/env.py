@@ -23,7 +23,7 @@ class DevelopmentEnv(EnvConfig):
 
 class TestingEnv(EnvConfig):
     TESTING = True
-    # SQLALCHEMY_DATABASE_URI
+    SQLALCHEMY_DATABASE_URI = get_env('DATABASE_TEST_URL')
     DEBUG = True
 
 
