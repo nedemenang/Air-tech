@@ -38,7 +38,7 @@ class Auth:
         """
         try:
             payload = {
-                'exp': datetime.now() + timedelta(days=0, seconds=120),
+                'exp': datetime.now() + timedelta(days=1, seconds=120),
                 'iat': datetime.now(),
                 'sub': user_id
             }
