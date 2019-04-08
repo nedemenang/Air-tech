@@ -65,3 +65,6 @@ Execute the following at the command line
 Browse the application in the url
 
 ```http://localhost:5000/api/v1/```
+
+Heroku Link:
+```https://air-tech.herokuapp.com/api/v1/```
