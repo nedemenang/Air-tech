@@ -1,6 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg?branch=master)](https://coveralls.io/github/nedemenang/Air-tech?branch=master)  [![Build Status](https://travis-ci.org/nedemenang/Air-tech.svg?branch=master)](https://travis-ci.org/nedemenang/Air-tech)
-
-
+[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg)](https://coveralls.io/github/nedemenang/Air-tech)
 
 # AIRTECH
 
