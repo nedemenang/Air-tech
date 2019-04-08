@@ -1,10 +1,10 @@
-[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg)](https://coveralls.io/github/nedemenang/Air-tech)
+[![Coverage Status](https://coveralls.io/repos/github/nedemenang/Air-tech/badge.svg?branch=master)](https://coveralls.io/github/nedemenang/Air-tech?branch=master)    [![Build Status](https://travis-ci.org/nedemenang/Air-tech.svg?branch=master)](https://travis-ci.org/nedemenang/Air-tech)
 
 # AIRTECH
 
 ## Project Description
 
-Company Airtech has had their challenges using spreadsheets to manage their flight booking system. They are ready to automate their processes with an application and have reached out to you to build a flight booking application for the company.
+Company Airtech has had their challenges using spreadsheets to manage their flight booking system. They are ready to automate their processes with a flight booking application.
 
 The flight booking system provides an API that enables the users to:
 
