@@ -1,0 +1,1181 @@
+FORMAT: 1A
+HOST: http://https://air-tech.herokuapp.com/api/v1/
+
+# air-tech
+
+Company Airtech has had their challenges using spreadsheets to manage their flight booking system. They are ready to automate their processes with a flight booking application.
+
+
+## User Management System [/user]
+
+### Create a New User [POST]
+
+
++ Request (application/json)
+
+        {
+"firstName": "Vince",
+"lastName": "Jackson",
+"middleName": "Doe",
+"emailAddress": "vince3@gmail.com",
+"password": "Password@1"
+}
+
++ Response 201 (application/json)
+
+    + Headers
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "user": {
+            "emailAddress": "vince3@gmail.com",
+            "firstName": "Vince",
+            "id": 2,
+            "isDeleted": false,
+            "lastName": "Jackson",
+            "middleName": "Doe",
+            "password": "$2b$10$WQpdL.7O6npS2Wc5vFKqjedgAekVK1XLqecWR2pxQQ24yaXA4Cjay",
+            "photoLink": null,
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            }
+        }
+    }
+}
+
+
+
+
+## User Management System [/user/upload]
+### Upload a picture [POST]
+
+
++ Request (application/x-www-form-urlencoded)
+
+        {
+"emailAddress": "vince3@gmail.com",
+"file": "link-to-file"
+}
+
+
+ + Response 201 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+    
+    + Body
+            {
+    "msg": "OK",
+}
+
+
+ 
+## User Management System [/user/login]
+
+### Login a user [POST]
+
++ Request (application/json)
+
+        {
+"emailAddress": "vince3@gmail.com",
+"password": "Password@1"
+}
+
++ Response 201 (application/json)
+
+    + Headers
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTQ4NDY3NjgsImlhdCI6MTU1NDc2MDI0OCwic3ViIjoibm5hbXNvLmVkZW1lbmFuZ0BnbWFpbC5jb20ifQ.hJEk2V3Cz-5PA6VX1_HgfejlktxcIa3GNmF59zF7ApA",
+        "user": {
+            "emailAddress": "vince3@gmail.com",
+            "firstName": "Vince",
+            "id": 1,
+            "isDeleted": false,
+            "lastName": "Carter",
+            "middleName": "Jones",
+            "password": null,
+            "photoLink": null,
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 14:37:23 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 14:37:23 GMT"
+            }
+        }
+    }
+}
+
+
+
+
+## User Management System [/user/reset]
+
+### Reset user password [POST]
+
++ Request (application/json)
+
+        {
+"emailAddress": "vince3@gmail.com",
+"password": "Password@1"
+}
+
++ Response 200 (application/json)
+
+    + Headers
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "user": {
+            "emailAddress": "vince3@gmail.com",
+            "firstName": "Vince",
+            "id": 1,
+            "isDeleted": false,
+            "lastName": "Johnson",
+            "middleName": "Hogan",
+            "password": "$2b$10$ufveuLkrDalTJ/aoERRbPOKjNrXp40E87IUHy4MOI.CBXwYcAqZZW",
+            "photoLink": null,
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 14:37:23 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 21:50:36 GMT"
+            }
+        }
+    }
+}
+
+
+
+
+
+## Location Management System [/location]
+
+### Create New Location [POST]
+
++ Request (application/json)
+
+        {
+"locationCode": "AMV",
+"location": "Albania"
+}
+
++ Response 201 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "location": {
+            "id": 4,
+            "isDeleted": false,
+            "location": "Albania",
+            "locationCode": "AMV",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            }
+        }
+    }
+}
+
+
+
+## Location Management System [/location]
+### List All locations [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "locations": [
+            {
+                "id": 1,
+                "isDeleted": false,
+                "location": "Albania",
+                "locationCode": "AMV",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 15:55:27 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 15:55:27 GMT"
+                }
+            },
+            {
+                "id": 4,
+                "isDeleted": false,
+                "location": "Albania",
+                "locationCode": "AMV",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            }
+        ],
+        "meta": {
+            "current_page": 1,
+            "next_page": null,
+            "prev_page": null,
+            "total_pages": 1,
+            "total_rows": 4
+        }
+    }
+}
+
+
+
+
+## Location Management System [/location/<int:location_id>]
+### List one location [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "location": {
+            "id": 1,
+            "isDeleted": false,
+            "location": "Albania",
+            "locationCode": "AMV",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 15:55:27 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 15:55:27 GMT"
+            }
+        }
+    }
+}
+
+
+## Location Management System [/location/<int:location_id>/]
+
+### Update Location [PUT]
+
++ Request (application/json)
+
+        {
+"locationCode": "AMV",
+"location": "Albania"
+}
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "location": {
+            "id": 2,
+            "isDeleted": false,
+            "location": "Albania",
+            "locationCode": "ALB",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 16:01:00 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            }
+        }
+    }
+}
+
+
+## Location Management System [/location/<int:location_id>/]
+
+### Delete Location [DELETE]
+
++ Request (application/json)
+
+        {}
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "status": "success"
+    }
+}
+
+
+
+## Flight Management System [/flight]
+
+### Create New Flight [POST]
+
++ Request (application/json)
+
+        {
+"flightCode": "APK8031",
+"status": "OnTime",
+"fromLocation": "ACC",
+"toLocation": "ABV",
+"depatureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+"arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+"price": 25000,
+"noOfSeats": "150"
+}
+
++ Response 201 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+## Flight Management System [/flight/<int:flight_id>]
+### Get Flight by ID [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+
+## Flight Management System [/available/<int:flight_id>]
+### List available seats on flight [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+## Flight Management System [/reserved/<int:flight_id>]
+### List reserved seats by ID [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+## Flight Management System [/<string:from_location>/<string:to_location>/<string:departure_date>/]
+### List flights by location and date [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+
+
+## Flight Management System [/<string:from_location>/<string:to_location>/]
+### List flights by location [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+
+## Flight Management System [/Flight/<int:flight_id>/]
+
+### Update Flight [PUT]
+
++ Request (application/json)
+
+        {
+"flightCode": "APK8031",
+"status": "OnTime",
+"fromLocation": "ACC",
+"toLocation": "ABV",
+"depatureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+"arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+"price": 25000,
+"noOfSeats": "150"
+}
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "flight": {
+            "arrivalTime": "Sat, 23 Mar 2019 22:21:11 GMT",
+            "departureDate": "Sat, 23 Mar 2019 00:00:00 GMT",
+            "departureTime": "Sat, 23 Mar 2019 21:21:11 GMT",
+            "flightCode": "APK8031",
+            "fromLocation": "ACC",
+            "id": 2,
+            "isDeleted": false,
+            "noOfSeats": 150,
+            "price": 25000,
+            "status": "OnTime",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "toLocation": "ABV"
+        }
+    }
+}
+
+
+
+## Flight Management System [/Flight/<int:flight_id>/]
+
+### Delete Flight [DELETE]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "status": "success"
+    }
+}
+
+
+
+## Flight Seat Management System [/flightSeat/<int:flight_id>/]
+### List Flight Seats on Flight [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flightSeats": [
+            {
+                "flightId": 2,
+                "id": 1,
+                "isAvailable": true,
+                "isDeleted": false,
+                "seatNumber": "C3",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            },
+            {
+                "flightId": 2,
+                "id": 2,
+                "isAvailable": true,
+                "isDeleted": false,
+                "seatNumber": "E3",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            },
+        ],
+        "meta": {
+            "current_page": 1,
+            "next_page": 2,
+            "prev_page": null,
+            "total_pages": 8,
+            "total_rows": 144
+        }
+    }
+}
+
+
+
+## Flight Seat Management System [/flightSeat/available/<int:flight_id>/]
+### List available Flight Seats on Flight [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flightSeats": [
+            {
+                "flightId": 2,
+                "id": 1,
+                "isAvailable": true,
+                "isDeleted": false,
+                "seatNumber": "C3",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            },
+            {
+                "flightId": 2,
+                "id": 2,
+                "isAvailable": true,
+                "isDeleted": false,
+                "seatNumber": "E3",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            },
+        ],
+        "meta": {
+            "current_page": 1,
+            "next_page": 2,
+            "prev_page": null,
+            "total_pages": 8,
+            "total_rows": 144
+        }
+    }
+}
+
+
+
+
+## Flight Seat Management System [/flightSeat/unavailable/<int:flight_id>/]
+### List Unavailable Flight Seats on Flight [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "flightSeats": [
+            {
+                "flightId": 2,
+                "id": 1,
+                "isAvailable": true,
+                "isDeleted": false,
+                "seatNumber": "C3",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            },
+            {
+                "flightId": 2,
+                "id": 2,
+                "isAvailable": true,
+                "isDeleted": false,
+                "seatNumber": "E3",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                }
+            },
+        ],
+        "meta": {
+            "current_page": 1,
+            "next_page": 2,
+            "prev_page": null,
+            "total_pages": 8,
+            "total_rows": 144
+        }
+    }
+}
+
+
+
+## Ticket Management System [/ticket]
+
+### Create New Ticket [POST]
+
++ Request (application/json)
+
+        {
+"flightSeatId": "1",
+"status": "Booked",
+"userId": "1"
+}
+
++ Response 201 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "ticket": {
+            "flightSeatId": 1,
+            "id": 1,
+            "isDeleted": false,
+            "status": "Booked",
+            "ticketNo": "ZGWVTNXBI0PP",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "userId": 1
+        }
+    }
+}
+
+
+
+
+## Ticket Management System [/ticket/<int:ticket_id>/]
+### Get Ticket by ID [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "ticket": {
+            "flightSeatId": 1,
+            "id": 1,
+            "isDeleted": false,
+            "status": "Booked",
+            "ticketNo": "ZGWVTNXBI0PP",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "userId": 1
+        }
+    }
+}
+
+
+
+
+## Ticket Management System [/ticket/]
+### List Tickets [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "meta": {
+            "current_page": 1,
+            "next_page": null,
+            "prev_page": null,
+            "total_pages": 1,
+            "total_rows": 3
+        },
+        "tickets": [
+            {
+                "flightSeatId": 1,
+                "id": 1,
+                "isDeleted": false,
+                "status": "Booked",
+                "ticketNo": "ZGWVTNXBI0PP",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                },
+                "userId": 1
+            },
+            {
+                "flightSeatId": 2,
+                "id": 2,
+                "isDeleted": false,
+                "status": "Booked",
+                "ticketNo": "YNL39JAO0GHX",
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                },
+                "userId": 1
+            }
+        ]
+    }
+}
+
+
+
+## Ticket Management System [/ticket/<int:ticket_id>/]
+
+### Update Ticket [POST]
+
++ Request (application/json)
+
+        {
+"flightSeatId": "1",
+"status": "PaidFor",
+"userId": "1"
+}
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "ticket": {
+            "flightSeatId": 1,
+            "id": 1,
+            "isDeleted": false,
+            "status": "PaidFor",
+            "ticketNo": "ZGWVTNXBI0PP",
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "userId": 1
+        }
+    }
+    
+    
+    
+## Flight Management System [/ticket/<int:ticket_id>/]
+
+### Delete Ticket [DELETE]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "status": "success"
+    }
+ }
+}
+
+
+
+
+## Card Management System [/card]
+
+### Create New Card [POST]
+
++ Request (application/json)
+
+        {
+"cardNumber": "12345678909876543",
+"expiryMonth": "2",
+"expiryYear": "2022",
+"securityNumber": "395",
+"userId": "1"
+}
+
++ Response 201 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "cardDetail": {
+            "cardNumber": "12345678909876543",
+            "expiryMonth": 2,
+            "expiryYear": 2022,
+            "id": 1,
+            "isDeleted": false,
+            "securiyNumber": 395,
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "userId": 1
+        }
+    }
+}
+
+
+## Card Management System [/card/<int:card_id>]
+
+### Update Card [POST]
+
++ Request (application/json)
+
+        {
+"cardNumber": "12345678909876543",
+"expiryMonth": "3",
+"expiryYear": "2022",
+"securityNumber": "395",
+"userId": "1"
+}
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "cardDetail": {
+            "cardNumber": "12345678909876543",
+            "expiryMonth": 3,
+            "expiryYear": 2022,
+            "id": 1,
+            "isDeleted": false,
+            "securiyNumber": 395,
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "userId": 1
+        }
+    }
+}
+
+
+## Card Management System [/card/<int:card_id>/]
+
+### Delete Card [DELETE]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "status": "success"
+    }
+ }
+}
+
+
+## Card Management System [/card/]
+### List Cards [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "cardDetails": [
+            {
+                "cardNumber": "12345678909876543",
+                "expiryMonth": 2,
+                "expiryYear": 2022,
+                "id": 1,
+                "isDeleted": false,
+                "securiyNumber": 395,
+                "timestamps": {
+                    "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                    "date_pretty": "April 08, 2019",
+                    "date_pretty_short": "Apr 08, 2019",
+                    "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+                },
+                "userId": 1
+            }
+        ],
+        "meta": {
+            "current_page": 1,
+            "next_page": null,
+            "prev_page": null,
+            "total_pages": 1,
+            "total_rows": 1
+        }
+    }
+}
+}
+
+
+
+## Card Management System [/ticket/<int:ticket_id>]
+### Get a Card [GET]
+
++ Response 200 (application/json)
+
+        {
+    "msg": "OK",
+    "payload": {
+        "cardDetail": {
+            "cardNumber": "12345678909876543",
+            "expiryMonth": 2,
+            "expiryYear": 2022,
+            "id": 1,
+            "isDeleted": false,
+            "securiyNumber": 395,
+            "timestamps": {
+                "created_at": "Mon, 08 Apr 2019 22:24:11 GMT",
+                "date_pretty": "April 08, 2019",
+                "date_pretty_short": "Apr 08, 2019",
+                "update_at": "Mon, 08 Apr 2019 22:24:11 GMT"
+            },
+            "userId": 1
+        }
+    }
+}
+
+
+
+## User Role Management System [/userRole/]
+
+### Add User to a role [POST]
+
++ Request (application/json)
+
+        {
+"roleId": 1,
+"userId": 2
+}
+
++ Response 201 (application/json)
+
+    + Headers
+    Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTMzNzAzMjAsImlhdCI6MTU1MzI4MzkyMCwic3ViIjoxfQ.WFEt1YKKY3dilH6LsEcdjr0PuJVZ59LNCg3XX89SVCw
+
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "user_role": {
+            "id": 2,
+            "isDeleted": false,
+            "roleId": 1,
+            "timestamps": {
+                "created_at": "Tue, 09 Apr 2019 00:25:27 GMT",
+                "date_pretty": "April 09, 2019",
+                "date_pretty_short": "Apr 09, 2019",
+                "update_at": "Tue, 09 Apr 2019 00:25:27 GMT"
+            },
+            "userId": "2"
+        }
+    }
+}
+
+
+
+## User Role Management System [/userRole/<int:user_id>/]
+
+### Get User role [Get]
+
++ Response 201 (application/json)
+    + Body
+
+            {
+    "msg": "OK",
+    "payload": {
+        "user_role": {
+            "id": 2,
+            "isDeleted": false,
+            "roleId": 1,
+            "timestamps": {
+                "created_at": "Tue, 09 Apr 2019 00:25:27 GMT",
+                "date_pretty": "April 09, 2019",
+                "date_pretty_short": "Apr 09, 2019",
+                "update_at": "Tue, 09 Apr 2019 00:25:27 GMT"
+            },
+            "userId": "2"
+        }
+    }
+}
