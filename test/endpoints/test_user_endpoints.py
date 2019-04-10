@@ -46,7 +46,7 @@ class UserEndpoints(BaseTestCase):
         user = UserFactory.create()
 
         data = {'emailAddress': user.email_address, 'password': 'Password1'}
-        response = self.client().post(self.make_url('/user/login'), data=self.encode_to_json_string(data), headers=self.headers())
+        response = self.client().post(self.make_url('/user/login/'), data=self.encode_to_json_string(data), headers=self.headers())
         response_json = self.decode_from_json_string(response.data.decode('utf-8'))
         payload = response_json['payload']
 

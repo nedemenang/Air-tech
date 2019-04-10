@@ -7,17 +7,17 @@ permission_controller = PermissionController(request)
 
 ''' USER ROLES '''
 
-@user_role_blueprint.route('/<string:user_id>/', methods=['GET'])
+@user_role_blueprint.route('/<string:user_id>/', strict_slashes=False, methods=['GET'])
 def get_user_role(user_id):
     return permission_controller.get_user_role(user_id)
 
 
-@user_role_blueprint.route('/', methods=['POST'])
+@user_role_blueprint.route('/', strict_slashes=False, methods=['POST'])
 @Security.validator(['roleId|required:int', 'userId|requied:int'])
 def create_user_role():
     return permission_controller.create_user_role()
 
 
-@user_role_blueprint.route('/<int:user_id>/', methods=['DELETE'])
+@user_role_blueprint.route('/<int:user_id>/', strict_slashes=False, methods=['DELETE'])
 def delete_user_role(user_id):
     return permission_controller.delete_user_role(user_id)
