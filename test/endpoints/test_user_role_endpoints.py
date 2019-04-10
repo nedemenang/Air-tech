@@ -13,7 +13,7 @@ class TestRoleEndpoints(BaseTestCase):
 
     def test_get__user_role_endpoint(self):
 
-        response = self.client().get(self.make_url('/userRoles/user/nnamso.edemenang@gmail.com'), headers=self.headers())
+        response = self.client().get(self.make_url('/userRole/nnamso.edemenang@gmail.com/'), headers=self.headers())
         
         response_json = self.decode_from_json_string(response.data.decode('utf-8'))
         payload = response_json['payload']

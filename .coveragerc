@@ -13,4 +13,5 @@ omit =
     seed_data.py
     */flight_email.html
     */flight_email.txt
+    locust.py
     

@@ -7,28 +7,28 @@ ticket_blueprint = Blueprint('ticket', __name__, url_prefix=url_prefix)
 ticket_controller = TicketController(request)
 
 
-@ticket_blueprint.route('/', methods=['GET'])
+@ticket_blueprint.route('/', strict_slashes=False, methods=['GET'])
 def list_ticket():
     return ticket_controller.get_tickets()
 
 
-@ticket_blueprint.route('/<int:ticket_id>/', methods=['GET'])
+@ticket_blueprint.route('/<int:ticket_id>/', strict_slashes=False, methods=['GET'])
 def get_ticket(ticket_id):
     return ticket_controller.get_ticket(ticket_id)
 
 
-@ticket_blueprint.route('/', methods=['POST'])
+@ticket_blueprint.route('/', strict_slashes=False, methods=['POST'])
 @Security.validator(['flightSeatId|required:int', 'status|required:string', 'userId|required:int'])
 def create_ticket():
     return ticket_controller.create_ticket()
 
 
-@ticket_blueprint.route('/<int:ticket_id>/', methods=['PUT'])
+@ticket_blueprint.route('/<int:ticket_id>/', strict_slashes=False, methods=['PUT'])
 @Security.validator(['flightSeatId|required:int', 'status|required:string', 'userId|required:int'])
 def update_ticket(ticket_id):
     return ticket_controller.update_ticket(ticket_id)
 
 
-@ticket_blueprint.route('/<int:ticket_id>/', methods=['DELETE'])
+@ticket_blueprint.route('/<int:ticket_id>/', strict_slashes=False, methods=['DELETE'])
 def delete_ticket(ticket_id):
     return ticket_controller.delete_ticket(ticket_id)
