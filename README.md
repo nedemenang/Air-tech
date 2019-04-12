@@ -60,7 +60,7 @@ Execute the following code to seed the database
 
 Execute the following at the command line
 
-```python run.py runserver```
+```python run.py runserver``` or ```gunicorn run:app```
 
 Browse the application in the url
 
