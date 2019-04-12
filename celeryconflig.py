@@ -11,7 +11,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 CELERYBEAT_SCHEDULE = {
     'test-celery': {
-        'task': 'app.tasks.email.print_hello',
+        'task': 'app.tasks.email.check_and_send_email',
         # Every minute
         'schedule': crontab(minute="*"),
     } 
