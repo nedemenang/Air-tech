@@ -29,7 +29,7 @@ The application is built with Python
 
 To clone the respository execute the following command.
 
-```git clone https://github.com/andela/airtech.git```
+```git clone https://github.com/nedemenang/airtech.git```
 
 Navigate into the cloned project directory.
 
