@@ -18,7 +18,7 @@ click==6.7
 codecov==2.0.15
 coverage==4.0.3
 coveralls==1.6.0
-cryptography==2.3.1
+cryptography==3.2
 docopt==0.6.2
 execnet==1.6.0
 factory-boy==2.11.1
